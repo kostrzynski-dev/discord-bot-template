@@ -1,3 +1,4 @@
+import logging
 import discord
 from discord.ext import commands
 
@@ -5,6 +6,7 @@ from bot.config import INTENTS
 from bot.settings import Settings
 from bot.utils.global_error_handler import global_app_command_error_handler
 
+LOGGER = logging.getLogger(__name__)
 
 # ============================================================
 # Core Discord Client
@@ -90,7 +92,7 @@ class BotClient(commands.Bot):
             self.tree.copy_global_to(guild=guild)
             await self.tree.sync(guild=guild)
 
-            print(
+            LOGGER.info(
                 f"[DEV] Slash commands synced to guild {Settings.DEVELOPER_GUILD_ID}"
             )
 
@@ -102,14 +104,18 @@ class BotClient(commands.Bot):
             """
 
             await self.tree.sync()
-            print("[PROD] Slash commands synced globally")
+            LOGGER.info(
+                "[PROD] Slash commands synced globally"
+            )
 
         # ----------------------------------------------------
         # Global error handler
         # ----------------------------------------------------
 
         self.tree.on_error = global_app_command_error_handler
-        print("Global application command error handler attached")
+        LOGGER.info(
+            "Global application command error handler attached"
+        )
 
     async def on_ready(self) -> None:
         """
@@ -120,7 +126,11 @@ class BotClient(commands.Bot):
         - All guilds are cached
         """
 
-        print(f"Connected as {self.user} (ID: {self.user.id})")
+        LOGGER.info(
+            "Connected as %s (ID: %s)",
+            self.user,
+            self.user.id,
+        )
 
     async def on_guild_join(self, guild: discord.Guild) -> None:
         """
@@ -129,11 +139,19 @@ class BotClient(commands.Bot):
         This hook is intentionally minimal and safe.
         """
 
-        print(f"Joined guild: {guild.name} ({guild.id})")
+        LOGGER.info(
+            "Joined guild: %s (%s)",
+            guild.name,
+            guild.id,
+        )
 
     async def on_guild_remove(self, guild: discord.Guild) -> None:
         """
         Fired when the bot is removed from a guild.
         """
 
-        print(f"Removed from guild: {guild.name} ({guild.id})")
+        LOGGER.info(
+            "Removed from guild: %s (%s)",
+            guild.name,
+            guild.id,
+        )
