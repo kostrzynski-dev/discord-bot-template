@@ -62,10 +62,13 @@ class BotClient(commands.Bot):
         # Import locally to avoid circular imports
 
         from bot.cogs.core import CoreCog
-        from bot.cogs.dev import DevCog
 
         await self.add_cog(CoreCog(self))
-        await self.add_cog(DevCog(self))
+
+        if Settings.IS_DEV:
+            from bot.cogs.dev import DevCog
+
+            await self.add_cog(DevCog(self))
 
         # ----------------------------------------------------
         # Slash command synchronization
