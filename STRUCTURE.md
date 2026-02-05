@@ -19,6 +19,7 @@ architecture in mind**.
 
 - [1. High-Level Overview](#1-high-level-overview)
 - [2. Root Directory](#2-root-directory)
+- [2.1 Developer Tooling (`tools/`)](#21-developer-tooling-tools)
 - [3. Project Assets](#3-project-assets)
 - [4. Application Core Package](#4-application-core-package)
   - [4.1 Core Runtime Files](#41-core-runtime-files)
@@ -140,7 +141,8 @@ These files are responsible for:
 - application startup,
 - environment configuration,
 - dependency definition,
-- developer-facing documentation.
+- developer-facing documentation,
+- maintainers tooling (snapshot generation).
 
 They do **not** contain application logic.
 
@@ -320,6 +322,43 @@ It is a **mandatory component** of any professional open-source project.
 ⬆️ [(read again)](#2-root-directory)
 
 ---
+
+## 2.1 Developer Tooling (`tools/`)
+
+⬆️ [(back to table of contents)](#-table-of-contents)
+
+The `tools/` directory contains **maintainer-oriented utilities** that support
+repository operations but are not part of runtime bot execution.
+
+These tools are intentionally separated from application logic (`bot/`) to keep
+the runtime architecture clean and predictable.
+
+### 📁 `tools/snapshot/`
+➡️ **Project snapshot utility domain**
+
+Contains the snapshot generator and its local output location:
+
+```text
+tools/
+└── snapshot/
+    ├── generate.py
+    └── docs/
+        └── PROJECT_SNAP.md   # generated locally (gitignored)
+```
+
+Responsibilities of `tools/snapshot/generate.py`:
+- build a one-file markdown snapshot of the repository,
+- include full file contents for allowed files,
+- exclude sensitive/local artifacts (e.g. `.env` secrets, caches, virtualenvs).
+
+Important notes:
+- `PROJECT_SNAP.md` is **not** versioned as source code,
+- this utility is for developers/maintainers, not runtime bot users.
+
+⬆️ [(read again)](#21-developer-tooling-tools)
+
+---
+
 
 ## 3. Project Assets
 

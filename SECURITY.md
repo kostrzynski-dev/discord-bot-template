@@ -165,7 +165,8 @@ This policy applies **only** to vulnerabilities that affect:
 - configuration validation and environment handling,
 - permission and access-control mechanisms,
 - centralized error handling and logging systems,
-- dependency safety and update strategy.
+- dependency safety and update strategy,
+- developer tooling that may aggregate repository content (e.g. snapshot generators).
 
 Issues introduced by **custom business logic in downstream projects**
 are explicitly **out of scope** and should be reported
@@ -185,7 +186,8 @@ The template intentionally favors:
 - explicit validation over implicit behavior,
 - controlled failure over silent errors,
 - centralized error handling over ad-hoc fixes,
-- safe defaults over convenience.
+- safe defaults over convenience,
+- local-only diagnostic artifacts for sensitive workflows.
 
 Every architectural decision is made with the assumption
 that failures **will occur** — and that they must be:

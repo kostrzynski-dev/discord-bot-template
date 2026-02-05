@@ -24,6 +24,7 @@ Discord bots in Python using `discord.py`, with a strong focus on
 - [Quick Architecture Snapshot](#quick-architecture-snapshot)
 - [Getting Started](#getting-started)
 - [Documentation](#documentation)
+- [Developer Tooling](#developer-tooling)
 - [Author](#-author)
 
 ---
@@ -311,6 +312,7 @@ You get:
 - a clear structural overview (`STRUCTURE.md`),
 - a focused development and extension guide (`GUIDE.md`),
 - a security policy that defines responsible disclosure and risk boundaries (`SECURITY.md`),
+- a local snapshot generator for maintainers (`tools/snapshot/generate.py`).
 - a permissive open-source license that defines usage and redistribution terms (`LICENSE`),
 - a README that explains intent, not just usage.
 
@@ -524,6 +526,40 @@ For deeper details, always refer to the documents above.
 ⬆️ [(read again)](#documentation)
 
 ---
+
+## Developer Tooling
+
+⬆️ [(back to table of contents)](#-table-of-contents)
+
+The repository also includes a dedicated maintainer utility for creating a
+local, auditable project snapshot without committing generated artifacts.
+
+### `tools/snapshot/generate.py`
+
+Use this tool when you want a complete one-file snapshot for review, migration,
+or offline analysis.
+
+Default command:
+
+```bash
+python tools/snapshot/generate.py
+```
+
+Default output:
+
+```text
+tools/snapshot/docs/PROJECT_SNAP.md
+```
+
+Security behavior:
+- excludes local `.env*` files (except `.env.example`),
+- excludes `.git`, virtualenv directories, and Python cache artifacts,
+- keeps generated snapshot local via `.gitignore`.
+
+⬆️ [(read again)](#developer-tooling)
+
+---
+
 
 ## 👨‍💼 Author
 

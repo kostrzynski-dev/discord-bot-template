@@ -1186,6 +1186,34 @@ must be **explicitly gated**.
 
 ---
 
+
+### 🧾 Project Snapshot Utility (`tools/snapshot`)
+
+For maintainer workflows, this template provides a local snapshot generator:
+
+- script: `tools/snapshot/generate.py`
+- default output: `tools/snapshot/docs/PROJECT_SNAP.md`
+
+Use case examples:
+- creating a one-file state snapshot before large refactors,
+- sharing architecture/code state in private reviews,
+- keeping an offline audit snapshot for debugging sessions.
+
+Run:
+
+```bash
+python tools/snapshot/generate.py
+```
+
+Security and hygiene defaults:
+- local `.env*` files are excluded (except `.env.example`),
+- virtualenv and cache artifacts are excluded,
+- generated snapshot output is gitignored by default.
+
+Treat this utility as a **developer tool**, not as runtime application logic.
+
+---
+
 ### 🧪 Development-Only Commands
 
 A common and effective pattern
@@ -1537,6 +1565,7 @@ The principles defined in:
 - `README.md`,
 - `STRUCTURE.md`,
 - this guide,
+- `tools/snapshot/generate.py` (for local snapshot workflows),
 
 exist to protect the project **over time**, not just today.
 
