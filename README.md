@@ -311,12 +311,14 @@ You get:
 - a clear structural overview (`STRUCTURE.md`),
 - a focused development and extension guide (`GUIDE.md`),
 - a security policy that defines responsible disclosure and risk boundaries (`SECURITY.md`),
+- a permissive open-source license that defines usage and redistribution terms (`LICENSE`),
 - a README that explains intent, not just usage.
 
 This ensures that:
 - new contributors onboard faster,
 - architectural decisions remain visible,
 - security assumptions and responsibilities are explicit,
+- usage and redistribution terms are clear,
 - the project stays understandable over time.
 
 ⬆️ [(read again)](#what-you-get)
