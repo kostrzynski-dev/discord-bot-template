@@ -283,6 +283,22 @@ without breaking its foundations.
 
 ---
 
+### `SECURITY.md`
+➡️ **Security policy & responsible disclosure**
+
+Defines how security vulnerabilities should be reported,
+evaluated, and disclosed for this repository.
+
+Responsibilities:
+- document supported security scope,
+- define responsible disclosure process,
+- set expectations for response and communication.
+
+This file establishes security as a **first-class design concern**,
+even though this project is a template and not a hosted service.
+
+---
+
 ### `LICENSE`
 
 ➡️ **Project license and legal usage terms**
@@ -353,6 +369,7 @@ and are never referenced by application code.
 - `readme_banner.png` — banner displayed at the top of `README.md`
 - `structure_banner.png` — banner displayed at the top of `STRUCTURE.md`
 - `guide_banner.png` — banner displayed at the top of `GUIDE.md`
+- `security_banner.png` — banner displayed at the top of `SECURITY.md`
 
 These assets exist to improve **clarity, orientation, and presentation** —
 not to influence application behavior.

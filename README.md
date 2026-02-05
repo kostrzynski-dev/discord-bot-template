@@ -310,11 +310,13 @@ The documentation is treated as part of the architecture.
 You get:
 - a clear structural overview (`STRUCTURE.md`),
 - a focused development and extension guide (`GUIDE.md`),
+- a security policy that defines responsible disclosure and risk boundaries (`SECURITY.md`),
 - a README that explains intent, not just usage.
 
 This ensures that:
 - new contributors onboard faster,
 - architectural decisions remain visible,
+- security assumptions and responsibilities are explicit,
 - the project stays understandable over time.
 
 ⬆️ [(read again)](#what-you-get)
